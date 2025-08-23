@@ -94,6 +94,39 @@
 .post-content img {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   margin: 1.5rem auto;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 智能图片样式类 */
+.post-content img.wide-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-content img.narrow-image {
+  max-width: 60%;
+  height: auto;
+  display: block;
+}
+
+.post-content img.tall-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .post-content img.narrow-image {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-content img.narrow-image {
+    max-width: 90%;
+  }
 }
 
 .post-content a {
@@ -194,3 +227,71 @@ a:focus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* 阅读全文按钮样式 - 兼容Tailwind CSS v2 */
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* 白色模式样式 */
+.read-more-btn {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.read-more-btn:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.read-more-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.read-more-btn:active {
+  transform: translateY(0);
+}
+
+/* 暗色模式样式 */
+.dark .read-more-btn {
+  background-color: #f59e0b;
+  color: #111827;
+  border-color: #f59e0b;
+  box-shadow: 0 1px 3px 0 rgba(245, 158, 11, 0.3), 0 1px 2px 0 rgba(245, 158, 11, 0.2);
+}
+
+.dark .read-more-btn:hover {
+  background-color: #d97706;
+  border-color: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.4), 0 4px 6px -2px rgba(245, 158, 11, 0.3);
+}
+
+.dark .read-more-btn:focus {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+/* 响应式调整 */
+@media (max-width: 640px) {
+  .read-more-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+  }
+}
+
+
